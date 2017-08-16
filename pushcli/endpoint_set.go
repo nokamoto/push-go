@@ -17,11 +17,11 @@ func (e EndpointSet)SubCommands() []SubCommand {
 	return []SubCommand{EndpointSetToken{}, EndpointSetTopic{}}
 }
 
-func (e EndpointSet)Run(opts Options, args []string) error {
+func (e EndpointSet)Run(opts push.Options, args []string) error {
 	return run(e, opts, args)
 }
 
-func set(opts Options, args []string, f func(string)*push.FirebaseCloudMessagingEndpoint) error {
+func set(opts push.Options, args []string, f func(string)*push.FirebaseCloudMessagingEndpoint) error {
 	if len(args) != 2 {
 		return errors.New("Usage: type id value")
 	}

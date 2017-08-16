@@ -1,9 +1,11 @@
 package main
 
+import "github.com/nokamoto/push-go/proto"
+
 type SubCommand interface {
 	Name() []string
 
-	Run(Options, []string) error
+	Run(push.Options, []string) error
 }
 
 func matchSubCommandName(c SubCommand, s string) bool {

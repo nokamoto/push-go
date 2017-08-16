@@ -14,7 +14,7 @@ func (e EndpointGet)Name() []string {
 	return []string{"get", "g"}
 }
 
-func (e EndpointGet)Run(opts Options, args []string) error {
+func (e EndpointGet)Run(opts push.Options, args []string) error {
 	if len(args) != 1 {
 		return errors.New("Usage: get id")
 	}

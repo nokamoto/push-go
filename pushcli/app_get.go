@@ -14,7 +14,7 @@ func (a AppGet)Name() []string {
 	return []string{"get", "g"}
 }
 
-func (a AppGet)Run(opts Options, args []string) error {
+func (a AppGet)Run(opts push.Options, args []string) error {
 	if len(args) != 0 {
 		return errors.New("Usage: get")
 	}

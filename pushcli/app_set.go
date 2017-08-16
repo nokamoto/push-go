@@ -13,7 +13,7 @@ func (a AppSet)Name() []string {
 	return []string{"set", "s"}
 }
 
-func (a AppSet)Run(opts Options, args []string) error {
+func (a AppSet)Run(opts push.Options, args []string) error {
 	if len(args) != 1 {
 		return errors.New("Usage: set api-key")
 	}
