@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "578564696324",
+    "firebase_url": "https://pushgoandroid.firebaseio.com",
+    "project_id": "pushgoandroid",
+    "storage_bucket": "pushgoandroid.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:578564696324:android:64dc5a053f7f5bdd",
+        "android_client_info": {
+          "package_name": "nokamoto.github.com.pushgoandroid"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "578564696324-c6ptl8b44o5v4n4nller1lnm8lm3t7ik.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "nokamoto.github.com.pushgoandroid",
+            "certificate_hash": "d2b3204711e23e333e4041ae632c28e0ae9fe039"
+          }
+        },
+        {
+          "client_id": "578564696324-ost4q43hun7h5d105l9bn8tlhrh2s68t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBxGhaFEa_E-DYEHeG186pQl4KlhOPuxlA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "578564696324-ost4q43hun7h5d105l9bn8tlhrh2s68t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
