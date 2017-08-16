@@ -43,5 +43,5 @@ func matchMainCommandName(c _MainCommand, s string) bool {
 }
 
 func allCommands() []_MainCommand {
-	return []_MainCommand{App{}}
+	return []_MainCommand{App{}, Endpoint{}}
 }
