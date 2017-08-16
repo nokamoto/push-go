@@ -6,16 +6,27 @@ import (
 	"google.golang.org/grpc"
 	google_protobuf "github.com/golang/protobuf/ptypes/empty"
 	"golang.org/x/net/context"
+	"log"
 )
 
-type App struct {}
+type App struct {
+	firebase *push.FirebaseCloudMessagingApp
+}
 
 func (a *App)SetFirebaseCloudMessaging(_ context.Context, app *push.FirebaseCloudMessagingApp) (*google_protobuf.Empty, error) {
-	return nil, nil
+	log.Printf("set: %v", app)
+	a.firebase = app
+	return new(google_protobuf.Empty), nil
 }
 
 func (a *App)GetFirebaseCloudMessaging(_ context.Context, _ *google_protobuf.Empty) (*push.FirebaseCloudMessagingApp, error) {
-	return nil, nil
+	log.Printf("get:")
+	res := new(push.FirebaseCloudMessagingApp)
+	if a.firebase != nil {
+		res = a.firebase
+	}
+	log.Printf("%v", res)
+	return res, nil
 }
 
 func main() {
