@@ -26,7 +26,7 @@ func (e *Endpoint)Set(_ context.Context, endpoint *push.SetFirebaseCloudMessagin
 func (e *Endpoint)Delete(_ context.Context, endpoint *push.DeleteFirebaseCloudMessagingEndpoint) (*google_protobuf.Empty, error) {
 	log.Printf("delete: %v", endpoint)
 	for k, v := range e.endpoints {
-		if v.Token == endpoint.Value.Token || v.Topic == endpoint.Value.Topic {
+		if v.Token == endpoint.Value.Token {
 			log.Printf("%v deleted", k)
 			delete(e.endpoints, k)
 		}

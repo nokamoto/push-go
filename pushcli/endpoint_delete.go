@@ -13,17 +13,9 @@ func (e EndpointDelete)Name() []string {
 	return []string{"delete", "d"}
 }
 
-func (e EndpointDelete)SubCommands() []SubCommand {
-	return []SubCommand{EndpointDeleteToken{}, EndpointDeleteTopic{}}
-}
-
 func (e EndpointDelete)Run(opts push.Options, args []string) error {
-	return run(e, opts, args)
-}
-
-func delete(opts push.Options, args []string, f func(string)*push.FirebaseCloudMessagingEndpoint) error {
 	if len(args) != 1 {
-		return errors.New("Usage: type value")
+		return errors.New("Usage: delete token")
 	}
 
 	conn, err := opts.Dial()
@@ -35,7 +27,7 @@ func delete(opts push.Options, args []string, f func(string)*push.FirebaseCloudM
 
 	client := push.NewFirebaseCloudMessagingEndpointServiceClient(conn)
 	req := &push.DeleteFirebaseCloudMessagingEndpoint{
-		Value: f(args[0]),
+		Value: &push.FirebaseCloudMessagingEndpoint{Token: args[0]},
 	}
 
 	fmt.Printf("delete token: %v\n", req)
@@ -43,5 +35,4 @@ func delete(opts push.Options, args []string, f func(string)*push.FirebaseCloudM
 
 	return err
 }
-
 
