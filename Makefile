@@ -11,8 +11,9 @@ test:
 	go test ./push-go-app
 	go test ./push-go-endpoint
 	go test ./push-go-notification
+	go test ./pushcli
 
 install:
 	go install ./push-go-app
 	go install ./push-go-endpoint
-	go install ./push-go-notification
+	go install ./pushcli
