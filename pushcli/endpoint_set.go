@@ -13,17 +13,9 @@ func (e EndpointSet)Name() []string {
 	return []string{"set", "s"}
 }
 
-func (e EndpointSet)SubCommands() []SubCommand {
-	return []SubCommand{EndpointSetToken{}, EndpointSetTopic{}}
-}
-
 func (e EndpointSet)Run(opts push.Options, args []string) error {
-	return run(e, opts, args)
-}
-
-func set(opts push.Options, args []string, f func(string)*push.FirebaseCloudMessagingEndpoint) error {
 	if len(args) != 2 {
-		return errors.New("Usage: type id value")
+		return errors.New("Usage: set id token")
 	}
 
 	conn, err := opts.Dial()
@@ -36,7 +28,7 @@ func set(opts push.Options, args []string, f func(string)*push.FirebaseCloudMess
 	client := push.NewFirebaseCloudMessagingEndpointServiceClient(conn)
 	req := &push.SetFirebaseCloudMessagingEndpoint{
 		Key: &push.Id{Id: args[0]},
-		Value: f(args[1]),
+		Value: &push.FirebaseCloudMessagingEndpoint{Token: args[1]},
 	}
 
 	fmt.Printf("set token: %v\n", req)
@@ -44,4 +36,3 @@ func set(opts push.Options, args []string, f func(string)*push.FirebaseCloudMess
 
 	return err
 }
-

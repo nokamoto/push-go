@@ -20,8 +20,8 @@ type Notification struct {
 	endpoint *grpc.ClientConn
 }
 
-func (n *Notification)post(apikey string, payload map[string]interface{}) error {
-	j, err := json.Marshal(payload)
+func (n *Notification)post(apikey string, obj map[string]interface{}) error {
+	j, err := json.Marshal(obj)
 	if err != nil {
 		return err
 	}
@@ -67,33 +67,34 @@ func (n *Notification)Send(_ context.Context, notification *push.FirebaseCloudMe
 		return nil, err
 	}
 
-	var payload map[string]interface {}
-	if err = json.Unmarshal([]byte(notification.Payload.Json), &payload); err != nil {
+	var obj map[string]interface {}
+	if err = json.Unmarshal([]byte(notification.Payload.Json), &obj); err != nil {
 		return nil, err
 	}
 
 	tokens := []string{}
-	topics := []string{}
 
 	for _, e := range notification.Endpoint {
 		if len(e.Token) != 0 {
 			tokens = append(tokens, e.Token)
 		}
-		if len(e.Topic) != 0 {
-			topics = append(topics, e.Topic)
-		}
 	}
 
-	if (len(tokens) > 0 && len(topics) > 0) || (len(topics) > 1) || (len(tokens) > 1000) {
+	if (len(tokens) > 0 && (len(notification.Topic) > 0 || len(notification.Condition) > 0)) ||
+		(len(notification.Topic) > 1 && len(notification.Condition) > 0) ||
+		(len(tokens) > 1000) {
 		return nil, errors.New("multiple requests are not available")
 	}
 
-	if len(topics) == 1 {
-		payload["to"] = topics[0]
-		err = n.post(app.ApiKey, payload)
+	if len(notification.Topic) > 0 {
+		obj["to"] = notification.Topic
+		err = n.post(app.ApiKey, obj)
+	} else if len(notification.Condition) > 0 {
+		obj["condition"] = notification.Condition
+		err = n.post(app.ApiKey, obj)
 	} else {
-		payload["registration_ids"] = tokens
-		err = n.post(app.ApiKey, payload)
+		obj["registration_ids"] = tokens
+		err = n.post(app.ApiKey, obj)
 	}
 
 	return empty, err

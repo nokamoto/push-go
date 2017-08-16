@@ -20,8 +20,6 @@ message Id {
 
 message FirebaseCloudMessagingEndpoint {
   string token = 1;
-
-  string topic = 2;
 }
 
 message SetFirebaseCloudMessagingEndpoint {
@@ -44,13 +42,17 @@ service FirebaseCloudMessagingEndpointService {
 }
 
 message FirebaseCloudMessagingNotification {
-  repeated FirebaseCloudMessagingEndpoint endpoint = 1;
+  string topic = 1;
+
+  string condition = 2;
+
+  repeated FirebaseCloudMessagingEndpoint endpoint = 3;
 
   message Payload {
     string json = 1;
   }
 
-  Payload payload = 2;
+  Payload payload = 4;
 }
 
 service FirebaseCloudMessagingService {
