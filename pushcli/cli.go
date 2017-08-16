@@ -4,10 +4,11 @@ import (
 	"flag"
 	"os"
 	"fmt"
+	"github.com/nokamoto/push-go/proto"
 )
 
 func main() {
-	opts := Options{
+	opts := push.Options{
 		Host: flag.String("host", "localhost", "The server host"),
 		Port: flag.Int("port", 8000, "The server port"),
 		ApiKey: flag.String("apikey", "default", "The request 'x-api-key'"),

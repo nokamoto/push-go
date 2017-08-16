@@ -17,11 +17,11 @@ func (e EndpointDelete)SubCommands() []SubCommand {
 	return []SubCommand{EndpointDeleteToken{}, EndpointDeleteTopic{}}
 }
 
-func (e EndpointDelete)Run(opts Options, args []string) error {
+func (e EndpointDelete)Run(opts push.Options, args []string) error {
 	return run(e, opts, args)
 }
 
-func delete(opts Options, args []string, f func(string)*push.FirebaseCloudMessagingEndpoint) error {
+func delete(opts push.Options, args []string, f func(string)*push.FirebaseCloudMessagingEndpoint) error {
 	if len(args) != 1 {
 		return errors.New("Usage: type value")
 	}

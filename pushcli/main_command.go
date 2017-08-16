@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"github.com/nokamoto/push-go/proto"
 )
 
 type _MainCommand interface {
@@ -10,7 +11,7 @@ type _MainCommand interface {
 	SubCommands() []SubCommand
 }
 
-func run(c _MainCommand, opts Options, args []string) error {
+func run(c _MainCommand, opts push.Options, args []string) error {
 	commands := c.SubCommands()
 
 	if len(args) < 1 {

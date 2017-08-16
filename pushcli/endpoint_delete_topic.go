@@ -10,7 +10,7 @@ func (e EndpointDeleteTopic)Name() []string {
 	return []string{"topic"}
 }
 
-func (e EndpointDeleteTopic)Run(opts Options, args []string) error {
+func (e EndpointDeleteTopic)Run(opts push.Options, args []string) error {
 	return delete(opts, args, func(v string) *push.FirebaseCloudMessagingEndpoint {
 		return &push.FirebaseCloudMessagingEndpoint{Topic: v}
 	})
