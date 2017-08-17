@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"golang.org/x/net/context"
 	"io"
+	"github.com/golang/protobuf/jsonpb"
 )
 
 type EndpointGet struct {}
@@ -40,7 +41,13 @@ func (e EndpointGet)Run(opts push.Options, args []string) error {
 			if err != nil {
 				return err
 			}
-			fmt.Printf("%v\n", value)
+
+			json, err := new(jsonpb.Marshaler).MarshalToString(value)
+			if err != nil {
+				return err
+
+			}
+			fmt.Printf("%v\n", json)
 		}
 	}
 
