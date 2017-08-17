@@ -3,6 +3,7 @@ syntax = "proto3";
 package push;
 
 import "google/protobuf/empty.proto";
+import "google/protobuf/timestamp.proto";
 
 message FirebaseCloudMessagingApp {
   string api_key = 1;
@@ -57,4 +58,16 @@ message FirebaseCloudMessagingNotification {
 
 service FirebaseCloudMessagingService {
   rpc Send(FirebaseCloudMessagingNotification) returns (google.protobuf.Empty) {}
+}
+
+message Log {
+  google.protobuf.Timestamp timestamp = 1;
+
+  string text = 2;
+}
+
+service LogService {
+  rpc Info(Log) returns (google.protobuf.Empty) {}
+
+  rpc Tail(google.protobuf.Empty) returns (stream Log) {}
 }
