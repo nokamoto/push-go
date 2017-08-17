@@ -1,0 +1,11 @@
+FROM alpine:3.6
+
+RUN apk add --no-cache --virtual .build-deps go git gcc openssl musl-dev
+
+RUN go get github.com/nokamoto/push-go/{NAME}
+
+RUN go get github.com/nokamoto/push-go/pushcli
+
+RUN apk del .build-deps
+
+ENTRYPOINT {NAME}
