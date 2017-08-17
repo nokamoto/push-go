@@ -6,6 +6,7 @@ import (
 	google_protobuf "github.com/golang/protobuf/ptypes/empty"
 	"fmt"
 	"errors"
+	"github.com/golang/protobuf/jsonpb"
 )
 
 type AppGet struct {}
@@ -34,7 +35,12 @@ func (a AppGet)Run(opts push.Options, args []string) error {
 		return err
 	}
 
-	fmt.Printf("%v", res)
+	json, err := new(jsonpb.Marshaler).MarshalToString(res)
+	if err != nil {
+		return err
+	}
+
+	fmt.Printf("%v\n", json)
 
 	return nil
 }
