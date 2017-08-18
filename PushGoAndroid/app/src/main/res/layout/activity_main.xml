@@ -26,7 +26,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="12sp"
-                android:layout_marginLeft="8dp"
                 android:layout_marginTop="4dp" />
 
             <Button
@@ -36,7 +35,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:text="REGISTER"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:onClick="register"/>
 
         </LinearLayout>
     </ScrollView>
