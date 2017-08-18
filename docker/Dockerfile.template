@@ -8,4 +8,6 @@ RUN go get github.com/nokamoto/push-go/pushcli
 
 RUN apk del .build-deps
 
+ENV PATH $PATH:/root/go/bin
+
 ENTRYPOINT {NAME}
