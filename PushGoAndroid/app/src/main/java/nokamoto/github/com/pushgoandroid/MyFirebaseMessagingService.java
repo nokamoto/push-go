@@ -1,9 +1,12 @@
 package nokamoto.github.com.pushgoandroid;
 
+import android.os.AsyncTask;
 import android.util.Log;
 
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
+
+import push.Service;
 
 public class MyFirebaseMessagingService extends FirebaseMessagingService {
     private static final String TAG = "MyFirebaseMsgService";
@@ -28,4 +31,6 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
             Log.d(TAG, "Message Notification Body: " + remoteMessage.getNotification().getBody());
         }
     }
+
+    private class LogTask extends AsyncTask<Service>
 }

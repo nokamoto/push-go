@@ -24,6 +24,10 @@ android {
             buildConfigField "String", "GRPC_HOST", "\"${properties.getProperty("grpc.host")}\""
             buildConfigField "String", "GRPC_PORT", "\"${properties.getProperty("grpc.port")}\""
             buildConfigField "String", "GRPC_APIKEY", "\"${properties.getProperty("grpc.apikey")}\""
+
+            buildConfigField "String", "GRPC_LOG_HOST", "\"${properties.getProperty("grpc.log.host")}\""
+            buildConfigField "String", "GRPC_LOG_PORT", "\"${properties.getProperty("grpc.log.port")}\""
+            buildConfigField "String", "GRPC_LOG_APIKEY", "\"${properties.getProperty("grpc.log.apikey")}\""
         }
         release {
             minifyEnabled false
