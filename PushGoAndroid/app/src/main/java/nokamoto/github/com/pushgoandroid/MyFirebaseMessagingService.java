@@ -6,6 +6,7 @@ import android.util.Log;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 
+import io.grpc.ManagedChannel;
 import push.Service;
 
 public class MyFirebaseMessagingService extends FirebaseMessagingService {
@@ -32,5 +33,18 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         }
     }
 
-    private class LogTask extends AsyncTask<Service>
+    private class LogTask extends AsyncTask<String, Integer, Integer> {
+        @Override
+        protected Integer doInBackground(String... logs) {
+            ManagedChannel channel = GrpcUtils.newLogChannel();
+
+            try {
+                push.LogServiceGrpc.newBlockingStub(channel).info(Service.Log.newBuilder().setText(logs[0]).build());
+            } finally {
+                channel.shutdown();
+            }
+
+            return null;
+        }
+    }
 }
