@@ -19,6 +19,24 @@ message Id {
   string id = 1;
 }
 
+message Topic {
+  string name = 2;
+}
+
+message Subscription {
+  Topic topic = 1;
+
+  Id key = 2;
+}
+
+service SubscriptionService {
+  rpc Subscribe(Subscription) returns (google.protobuf.Empty) {}
+
+  rpc Unsubscribe(Subscription) returns (google.protobuf.Empty) {}
+
+  rpc Get(Topic) returns (stream Id) {}
+}
+
 message FirebaseCloudMessagingEndpoint {
   string token = 1;
 }
