@@ -4,7 +4,7 @@ set -ex
 
 cd docker
 
-names=`echo push-go-{app,endpoint,log,notification}`
+names=`echo push-go-{app,endpoint,log,notification,subscription}`
 
 for name in $names
 do
