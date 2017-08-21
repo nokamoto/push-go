@@ -40,6 +40,17 @@ docker exec -it push-go-log pushcli log tail | head -n 1 | grep '"text":"x"'
 
 docker exec -it push-go-log pushcli log tail | tail -n 1 | grep '"text":"y"'
 
+# subscription
+#[[ -z $(docker exec -it push-go-subscription pushcli subscription get x) ]]
+
+#docker exec -it push-go-subscription pushcli subscription subscribe x y
+
+#docker exec -it push-go-subscription pushcli subscription get x | grep '"id":"y"'
+
+#docker exec -it push-go-subscription pushcli subscription unsubscribe x y
+
+#[[ -z $(docker exec -it push-go-subscription pushcli subscription get x) ]]
+
 for name in $names
 do
     docker stop $name

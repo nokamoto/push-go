@@ -12,6 +12,7 @@ test:
 	go test ./push-go-endpoint
 	go test ./push-go-notification
 	go test ./push-go-log
+	go test ./push-go-subscription
 	go test ./pushcli
 
 install:
@@ -19,4 +20,5 @@ install:
 	go install ./push-go-endpoint
 	go install ./push-go-notification
 	go install ./push-go-log
+	go install ./push-go-subscription
 	go install ./pushcli

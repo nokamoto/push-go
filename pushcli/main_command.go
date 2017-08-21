@@ -44,5 +44,5 @@ func matchMainCommandName(c _MainCommand, s string) bool {
 }
 
 func allCommands() []_MainCommand {
-	return []_MainCommand{App{}, Endpoint{}, Notification{}, Log{}}
+	return []_MainCommand{App{}, Endpoint{}, Notification{}, Log{}, Subscription{}}
 }
