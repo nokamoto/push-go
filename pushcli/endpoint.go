@@ -7,5 +7,5 @@ func (e Endpoint)Name() []string {
 }
 
 func (e Endpoint)SubCommands() []SubCommand {
-	return []SubCommand{EndpointSet{}, EndpointDelete{}, EndpointGet{}}
+	return []SubCommand{EndpointSet{}, EndpointDelete{}, EndpointGet{}, EndpointUpdate{}}
 }
