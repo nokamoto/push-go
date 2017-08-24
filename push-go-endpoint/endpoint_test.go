@@ -60,3 +60,36 @@ func TestEndpoint_Delete(t *testing.T) {
 		t.Error(err.Error())
 	}
 }
+
+func TestEndpoint_Update(t *testing.T) {
+	e := NewEndpoint()
+
+	x := push.Id{Id: "x"}
+
+	token := push.FirebaseCloudMessagingEndpoint{Token: "y"}
+
+	entry1 := push.SetFirebaseCloudMessagingEndpoint{
+		Key: &x,
+		Value: &token,
+	}
+
+	if _, err := e.Set(nil, &entry1); err != nil {
+		t.Error(err.Error())
+	}
+
+	newToken := push.FirebaseCloudMessagingEndpoint{Token: "z"}
+
+	update := push.UpdateFirebaseCloudMessagingEndpoint{
+		OldValue: &token,
+		NewValue: &newToken,
+	}
+
+	t.Logf("update %v", update)
+	if _, err := e.Update(nil, &update); err != nil {
+		t.Error(err.Error())
+	}
+
+	if !reflect.DeepEqual(e.endpoints[x], &newToken) {
+		t.Errorf("%v != %v", *e.endpoints[x], newToken)
+	}
+}

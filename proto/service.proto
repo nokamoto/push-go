@@ -51,11 +51,18 @@ message DeleteFirebaseCloudMessagingEndpoint {
   FirebaseCloudMessagingEndpoint value = 1;
 }
 
+message UpdateFirebaseCloudMessagingEndpoint {
+  FirebaseCloudMessagingEndpoint old_value = 1;
+
+  FirebaseCloudMessagingEndpoint new_value = 2;
+}
 
 service FirebaseCloudMessagingEndpointService {
   rpc Set(SetFirebaseCloudMessagingEndpoint) returns (google.protobuf.Empty) {}
 
   rpc Delete(DeleteFirebaseCloudMessagingEndpoint) returns (google.protobuf.Empty) {}
+
+  rpc Update(UpdateFirebaseCloudMessagingEndpoint) returns (google.protobuf.Empty) {}
 
   rpc Get(Id) returns (stream FirebaseCloudMessagingEndpoint) {}
 }

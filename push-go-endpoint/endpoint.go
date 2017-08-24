@@ -34,6 +34,17 @@ func (e *Endpoint)Delete(_ context.Context, endpoint *push.DeleteFirebaseCloudMe
 	return new(google_protobuf.Empty), nil
 }
 
+func (e *Endpoint)Update(_ context.Context, endpoint *push.UpdateFirebaseCloudMessagingEndpoint) (*google_protobuf.Empty, error) {
+	log.Printf("update: %v", endpoint)
+	for k, v := range e.endpoints {
+		if v.Token == endpoint.OldValue.Token {
+			log.Printf("%v updated", k)
+			v.Token = endpoint.NewValue.Token
+		}
+	}
+	return new(google_protobuf.Empty), nil
+}
+
 func (e *Endpoint)Get(id *push.Id, stream push.FirebaseCloudMessagingEndpointService_GetServer) error {
 	log.Printf("get: %v", id)
 	if x, ok := e.endpoints[*id]; ok {
