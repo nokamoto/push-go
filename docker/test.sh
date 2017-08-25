@@ -25,15 +25,15 @@ docker exec -it push-go-endpoint pushcli endpoint get x | grep '{"token":"y"}'
 
 docker exec -it push-go-endpoint pushcli endpoint delete y
 
-#[[ -z $(docker exec -it push-go-endpoint pushcli endpoint get x) ]]
-#
-#docker exec -it push-go-endpoint pushcli endpoint set x y
-#
-#docker exec -it push-go-endpoint pushcli endpoint update y z
-#
-#docker exec -it push-go-endpoint pushcli endpoint get x | grep '{"token":"z"}'
-#
-#docker exec -it push-go-endpoint pushcli endpoint delete z
+[[ -z $(docker exec -it push-go-endpoint pushcli endpoint get x) ]]
+
+docker exec -it push-go-endpoint pushcli endpoint set x y
+
+docker exec -it push-go-endpoint pushcli endpoint update y z
+
+docker exec -it push-go-endpoint pushcli endpoint get x | grep '{"token":"z"}'
+
+docker exec -it push-go-endpoint pushcli endpoint delete z
 
 [[ -z $(docker exec -it push-go-endpoint pushcli endpoint get x) ]]
 
