@@ -1,0 +1,31 @@
+# The configuration schema is defined by service.proto file
+# https://github.com/googleapis/googleapis/blob/master/google/api/service.proto
+type: google.api.Service
+config_version: 3
+
+#
+# Name of the service configuration.
+#
+name: push.go.subscription.endpoints.{PROJECT_ID}.cloud.goog
+
+#
+# API title to appear in the user interface (Google Cloud Console).
+#
+title: push-go-subscription gRPC API
+apis:
+- name: push.SubscriptionService
+
+#
+# API usage restrictions.
+#
+usage:
+  rules:
+  # methods can not be called without an API Key.
+  - selector: push.SubscriptionService.Subscribe
+    allow_unregistered_calls: false
+
+  - selector: push.SubscriptionService.Unsubscribe
+    allow_unregistered_calls: false
+
+  - selector: push.SubscriptionService.Get
+    allow_unregistered_calls: false

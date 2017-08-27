@@ -1,2 +1,13 @@
 .idea/
 docker/push-go-*
+gcp/out.pb
+gcp/api_config.app.yaml
+gcp/api_config.endpoint.yaml
+gcp/api_config.log.yaml
+gcp/api_config.notification.yaml
+gcp/api_config.subscription.yaml
+gcp/k8s.app.yaml
+gcp/k8s.endpoint.yaml
+gcp/k8s.log.yaml
+gcp/k8s.notification.yaml
+gcp/k8s.subscription.yaml
