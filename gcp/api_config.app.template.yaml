@@ -1,0 +1,28 @@
+# The configuration schema is defined by service.proto file
+# https://github.com/googleapis/googleapis/blob/master/google/api/service.proto
+type: google.api.Service
+config_version: 3
+
+#
+# Name of the service configuration.
+#
+name: push.go.app.endpoints.{PROJECT_ID}.cloud.goog
+
+#
+# API title to appear in the user interface (Google Cloud Console).
+#
+title: push-go-app gRPC API
+apis:
+- name: push.AppService
+
+#
+# API usage restrictions.
+#
+usage:
+  rules:
+  # methods can not be called without an API Key.
+  - selector: push.AppService.SetFirebaseCloudMessaging
+    allow_unregistered_calls: false
+
+  - selector: push.AppService.GetFirebaseCloudMessaging
+    allow_unregistered_calls: false
