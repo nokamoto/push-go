@@ -1,5 +1,7 @@
 .idea/
+
 docker/push-go-*
+
 gcp/out.pb
 gcp/api_config.app.yaml
 gcp/api_config.endpoint.yaml
@@ -11,3 +13,8 @@ gcp/k8s.endpoint.yaml
 gcp/k8s.log.yaml
 gcp/k8s.notification.yaml
 gcp/k8s.subscription.yaml
+
+node_modules/
+package-lock.json
+config.json
+functions/*/gcp/google/

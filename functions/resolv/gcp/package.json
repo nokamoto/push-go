@@ -1,0 +1,7 @@
+{
+  "name": "push-go-functions-resolv-gcp",
+  "dependencies": {
+    "grpc": "^1.4.1",
+    "safe-buffer": "^5.1.1"
+  }
+}
