@@ -1,0 +1,7 @@
+{
+  "name": "push-go-functions-pub-gcp",
+  "dependencies": {
+    "@google-cloud/pubsub": "0.13.2",
+    "grpc": "^1.4.1"
+  }
+}
