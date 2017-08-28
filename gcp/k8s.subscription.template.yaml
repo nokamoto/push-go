@@ -24,7 +24,7 @@ spec:
     protocol: TCP
     name: http2
   selector:
-    app: esp-grpc-app
+    app: esp-grpc-subscription
   type: LoadBalancer
 ---
 apiVersion: extensions/v1beta1
@@ -36,7 +36,7 @@ spec:
   template:
     metadata:
       labels:
-        app: esp-grpc-app
+        app: esp-grpc-subscription
     spec:
       containers:
       - name: esp
