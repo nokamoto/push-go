@@ -55,3 +55,6 @@ gcloud beta pubsub topics create resolve-endpoints
 ```
 ./functions/gcp-deploy.sh [PUB_BUCKET_NAME] [RESOLV_BUCKET_NAME]
 ```
+
+## Amazon Web Services
+[ECS](http://docs.aws.amazon.com/ja_jp/AmazonECS/latest/developerguide/ECS_GetStarted.html) を利用開始する
