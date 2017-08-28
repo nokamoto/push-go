@@ -28,8 +28,6 @@ exports.pub = function pub (req, res) {
 
         var call = client.get({name: req.body.topic}, meta);
 
-        console.log(call);
-
         const topic = pubsub.topic('resolve-endpoints');
 
         call.on('data', function(id) {
@@ -56,5 +54,3 @@ exports.pub = function pub (req, res) {
         });
     }
 };
-
-exports.pub({body: {message: 'x', topic: 'all'}}, {});
