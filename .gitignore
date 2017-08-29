@@ -18,3 +18,9 @@ node_modules/
 package-lock.json
 config.json
 functions/*/gcp/google/
+
+functions/*/aws/google/
+functions/pub/aws/handler.zip
+functions/pub/aws/service.proto
+
+*.pem

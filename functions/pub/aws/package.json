@@ -1,0 +1,7 @@
+{
+  "name": "push-go-functions-pub-aws",
+  "dependencies": {
+    "aws-sdk": "^2.104.0",
+    "grpc": "^1.4.1"
+  }
+}
